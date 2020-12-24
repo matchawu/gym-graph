@@ -105,3 +105,7 @@ class GraphEnv(gym.Env): # customized environment
         self.observation = 0
 
         return self.observation
+    def render(self):
+        outfile = StringIO() if mode == 'ansi' else sys.stdout
+        outfile.write('State: ' + repr(self.state) + ' Action: ' + repr(self.action_taken) + '\n')
+        return 0
